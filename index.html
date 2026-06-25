@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>송종옥 Verbal · 2024년 11월 후기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Noto+Serif+KR:wght@500;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e17; --bg2:#0d1320; --panel:#111a2b; --panel2:#152033;
+    --ink:#eef2fb; --sub:#97a3bd; --faint:#647193;
+    --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+    --gold:#d9b86b; --gold2:#f1d99e; --gold-d:#b8924a;
+    --blue:#5b9bff; --blue2:#9bc1ff;
+    --ok:#46c98a; --okbg:rgba(70,201,138,.13); --no:#ff6b6b; --nobg:rgba(255,107,107,.12);
+    --hl:rgba(241,217,158,.32); --pick:rgba(91,155,255,.16);
+    --r:16px; --sh:0 2px 10px rgba(0,0,0,.4),0 24px 60px rgba(0,0,0,.3);
+    --serif:"Noto Serif KR","Cormorant Garamond",serif;
+    --sans:"Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:
+     radial-gradient(1100px 560px at 82% -8%, rgba(217,184,107,.10), transparent 58%),
+     radial-gradient(900px 500px at -8% 6%, rgba(91,155,255,.10), transparent 54%),
+     var(--bg);color:var(--ink);font-family:var(--sans);-webkit-text-size-adjust:100%;}
+  body{line-height:1.62;min-height:100vh}
+  .wrap{max-width:960px;margin:0 auto;padding:18px 16px 110px}
+  ::selection{background:rgba(241,217,158,.3)}
+  a{color:inherit}
+
+  header.top{display:flex;align-items:center;gap:12px;padding:13px 16px;position:sticky;top:0;z-index:30;
+    background:rgba(10,14,23,.82);backdrop-filter:saturate(1.5) blur(12px);border-bottom:1px solid var(--line)}
+  header.top .brand{font-family:var(--serif);font-weight:700;font-size:14.5px;letter-spacing:.3px;flex:1;
+    background:linear-gradient(90deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  header.top .badge{font-size:12px;color:var(--gold2);background:rgba(217,184,107,.10);
+    border:1px solid rgba(217,184,107,.3);padding:5px 11px;border-radius:999px;font-variant-numeric:tabular-nums}
+
+  .btn{appearance:none;border:1px solid var(--line2);background:var(--panel);color:var(--ink);
+    font-family:var(--sans);font-size:14px;font-weight:600;padding:11px 17px;border-radius:12px;cursor:pointer;transition:.14s}
+  .btn:hover{border-color:var(--gold-d);background:var(--panel2)}
+  .btn.primary{background:linear-gradient(180deg,var(--gold2),var(--gold));border:none;color:#2a2008;font-weight:700;box-shadow:0 4px 14px rgba(217,184,107,.28)}
+  .btn.primary:hover{filter:brightness(1.06)}
+  .btn.ghost{background:transparent}
+  .btn:disabled{opacity:.32;cursor:not-allowed}
+
+  /* ===== 홈 (파일럿2 시인성) ===== */
+  .home{padding-top:14px}
+  .hero{position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    background:linear-gradient(160deg,var(--panel2),var(--bg2));box-shadow:var(--sh);padding:40px 36px 34px}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 220px at 78% 0%, rgba(217,184,107,.16), transparent 60%);pointer-events:none}
+  .hero .crest{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(217,184,107,.35);border-radius:999px;
+    padding:6px 14px;font-size:11px;letter-spacing:.18em;color:var(--gold2);text-transform:uppercase;margin-bottom:18px;background:rgba(217,184,107,.06)}
+  .hero .crest .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+  .hero h1{font-family:var(--sans);font-weight:700;font-size:clamp(26px,5vw,42px);line-height:1.25;margin:0 0 6px;letter-spacing:-1px}
+  .hero h1 .gold{background:linear-gradient(90deg,var(--gold2),var(--gold) 60%,var(--gold-d));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sig{font-family:var(--serif);font-style:italic;font-size:clamp(16px,2.4vw,20px);opacity:.9;margin:2px 0 0}
+  .hero .rule{height:1px;background:linear-gradient(90deg,transparent,rgba(217,184,107,.5),transparent);margin:22px 0 18px}
+  .hero .desc{font-size:14px;color:var(--sub);max-width:640px;line-height:1.8}
+  .hero .desc b{color:var(--gold2);font-weight:600}
+  .hero .note{margin-top:14px;display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--sub);
+    background:rgba(91,155,255,.07);border:1px solid rgba(91,155,255,.2);border-radius:11px;padding:12px 14px}
+  .hero .note .k{flex:none;color:var(--blue);font-weight:700}
+
+  /* 검색 */
+  .searchbar{margin:18px 0 6px;position:relative}
+  .searchbar input{width:100%;background:var(--panel);border:1px solid var(--line2);border-radius:14px;
+    color:var(--ink);font-family:var(--sans);font-size:15px;padding:14px 16px 14px 44px;outline:none}
+  .searchbar input:focus{border-color:var(--gold-d)}
+  .searchbar .ico{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:17px}
+  .searchbar .hintx{font-size:12px;color:var(--faint);margin:7px 2px 0}
+  .results{margin-top:10px;display:grid;gap:8px}
+  .rrow{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:11px;
+    padding:11px 14px;cursor:pointer;transition:.1s}
+  .rrow:hover{border-color:rgba(217,184,107,.4);background:var(--panel2)}
+  .rrow .rid{font-family:var(--serif);font-weight:700;color:var(--gold2);font-size:14px;min-width:90px}
+  .rrow .rtx{font-size:13px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+  .rrow .rty{font-size:11px;color:var(--blue2);flex:none}
+
+  .cats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+  .cat{position:relative;text-align:left;padding:22px;border-radius:var(--r);cursor:pointer;transition:.16s;
+    background:linear-gradient(165deg,var(--panel2),var(--panel));border:1px solid var(--line);box-shadow:var(--sh);overflow:hidden}
+  .cat:hover{transform:translateY(-2px);border-color:rgba(217,184,107,.4)}
+  .cat .ic{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;font-weight:700;font-size:15px;
+    line-height:1;color:#1a1305;letter-spacing:.5px;margin-bottom:14px;font-family:var(--serif)}
+  .cat.tcse .ic{background:linear-gradient(135deg,var(--gold2),var(--gold-d))}
+  .cat.rccr .ic{background:linear-gradient(135deg,#9fc1ff,#4f7fe0);color:#08122b}
+  .cat .t .en{display:block;font-family:var(--serif);font-size:17px;color:var(--gold2);margin-bottom:3px;line-height:1.35}
+  .cat .t span{display:block;color:var(--ink);opacity:.82;font-size:13px}
+  .cat .resume{display:inline-block;margin-top:13px;font-size:12px;color:var(--gold2);font-weight:700;border-top:1px solid var(--line);padding-top:11px;width:100%}
+  .home .reset{margin-top:26px;text-align:center}
+  .home .reset a{color:var(--faint);font-size:12px;text-decoration:underline;cursor:pointer}
+  .home .foot{margin-top:16px;text-align:center;color:var(--faint);font-size:11px;letter-spacing:.04em}
+  @media(max-width:680px){.hero{padding:30px 20px 26px}.cats{grid-template-columns:1fr}}
+
+  /* ===== 카테고리 메뉴 (유형필터·세그먼트) ===== */
+  .menu{padding-top:12px}
+  .menuhd{display:flex;align-items:baseline;gap:10px;margin:6px 2px 16px}
+  .menuhd h2{font-family:var(--serif);font-size:24px;margin:0;color:var(--gold2)}
+  .menuhd span{color:var(--sub);font-size:13px}
+  .seg-title{font-size:12.5px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin:18px 2px 9px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line2);background:var(--panel);color:var(--ink);border-radius:10px;
+    padding:9px 13px;font-size:13px;cursor:pointer;transition:.1s;display:flex;align-items:center;gap:7px}
+  .chip:hover{border-color:rgba(217,184,107,.4);background:var(--panel2)}
+  .chip .c{font-size:11px;color:var(--gold2);font-variant-numeric:tabular-nums;background:rgba(217,184,107,.12);
+    border-radius:6px;padding:1px 6px}
+  .chip.wide{width:100%;justify-content:space-between}
+  .chip .pg{font-size:11px;color:var(--faint)}
+
+  /* ===== 문제 카드 (파일럿1 내용) ===== */
+  .stage{margin-top:8px}
+  .qcard{background:linear-gradient(170deg,var(--panel2),var(--panel));border:1px solid var(--line);
+    border-radius:var(--r);box-shadow:var(--sh);padding:24px}
+  .meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:10px;flex-wrap:wrap}
+  .meta .pid{font-family:var(--serif);font-weight:700;font-size:18px;letter-spacing:.4px;color:var(--gold2)}
+  .meta .tt{display:flex;gap:6px;flex-wrap:wrap}
+  .meta .ty{font-size:11px;color:var(--blue2);background:rgba(91,155,255,.1);border:1px solid rgba(91,155,255,.25);border-radius:999px;padding:3px 9px}
+  .meta .prog{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums;margin-left:auto}
+  .progbar{height:3px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;margin-bottom:20px}
+  .progbar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;transition:width .3s}
+  .stem{font-size:17px;line-height:1.85;margin:0 0 20px;color:#e9eefb}
+  .stem mark{background:var(--hl);color:#fff;padding:.5px 2px;border-radius:3px}
+  .stem mark.bf, .passage mark.bf{background:rgba(241,217,158,.92);color:#1a1305;font-weight:700;padding:.5px 4px;border-radius:3px}
+  .stem .blank{color:var(--gold2);font-weight:700;letter-spacing:-1px;margin:0 2px}
+  .stem .bnum{color:var(--gold2);font-weight:700;margin:0 1px 0 3px}
+
+  .opttable{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 8px;border:1px solid var(--line2);border-radius:12px;overflow:hidden}
+  .opttable th{background:rgba(217,184,107,.10);color:var(--gold2);font-weight:700;font-size:12.5px;letter-spacing:.04em;padding:10px 12px;text-align:center;border-bottom:1px solid var(--line2)}
+  .opttable td{padding:0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);vertical-align:stretch}
+  .opttable tr:last-child td{border-bottom:none} .opttable td:last-child{border-right:none}
+  .opttable .cell{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer;transition:.1s;font-size:14.5px;height:100%;color:#e6ebf8}
+  .opttable .cell:hover{background:rgba(255,255,255,.04)}
+  .opttable .cell .mk{flex:none;width:20px;height:20px;border-radius:50%;border:1.8px solid #4a587a;display:grid;place-items:center;font-size:11px;font-weight:800;color:transparent}
+  .opttable .cell.sel{background:var(--pick)} .opttable .cell.sel .mk{border-color:var(--gold);background:var(--gold);color:#2a2008}
+  .opttable .cell.correct{background:var(--okbg)} .opttable .cell.correct .mk{border-color:var(--ok);background:var(--ok);color:#06160d}
+  .opttable .cell.wrong{background:var(--nobg)} .opttable .cell.wrong .mk{border-color:var(--no);background:var(--no);color:#fff}
+
+  .opts{display:grid;gap:9px;margin:0 0 8px}
+  .opt{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border:1px solid var(--line2);border-radius:12px;cursor:pointer;background:var(--panel);transition:.1s;font-size:14.5px;line-height:1.55;color:#e6ebf8}
+  .opt:hover{border-color:rgba(217,184,107,.35);background:var(--panel2)}
+  .opt .mk{flex:none;width:22px;height:22px;border-radius:50%;border:1.8px solid #4a587a;display:grid;place-items:center;font-size:12px;font-weight:800;color:transparent}
+  .opt.sa .mk{border-radius:6px}
+  .opt.sel{border-color:var(--gold);background:var(--pick)} .opt.sel .mk{border-color:var(--gold);background:var(--gold);color:#2a2008}
+  .opt .lab{font-weight:800;margin-right:3px;color:var(--gold2)}
+  .opt.correct{border-color:var(--ok);background:var(--okbg)} .opt.correct .mk{border-color:var(--ok);background:var(--ok);color:#06160d}
+  .opt.wrong{border-color:var(--no);background:var(--nobg)} .opt.wrong .mk{border-color:var(--no);background:var(--no);color:#fff}
+  .opt[disabled]{cursor:default}
+
+  .hint{font-size:12.5px;color:var(--gold2);background:rgba(217,184,107,.08);border:1px solid rgba(217,184,107,.25);padding:8px 12px;border-radius:9px;margin:0 0 12px;display:inline-block}
+  .direction{font-size:13px;font-style:italic;color:var(--sub);border-left:2px solid var(--gold-d);padding:2px 0 2px 12px;margin:0 0 12px;line-height:1.55}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  .passage{position:sticky;top:74px;max-height:calc(100vh - 112px);overflow:auto;background:var(--bg2);border:1px solid var(--line2);border-radius:14px;padding:18px;font-size:15px;line-height:1.85;color:#dde4f4}
+  .passage mark{background:var(--hl);color:#fff;padding:.5px 2px;border-radius:3px}
+  .passage.selsent .sent{cursor:pointer;border-radius:5px;padding:0 1px;transition:.1s}
+  .passage.selsent .sent:hover{background:rgba(91,155,255,.14)}
+  .passage.selsent .sent.chosen{background:var(--pick);box-shadow:inset 0 0 0 1px var(--blue)}
+  .passage.selsent .sent.ans-right{background:var(--okbg);box-shadow:inset 0 0 0 1px var(--ok)}
+  .passage.selsent .sent.ans-wrong{background:var(--nobg);box-shadow:inset 0 0 0 1px var(--no)}
+  .qpanel{min-width:0}
+  .qtext{font-size:15.5px;font-weight:600;margin:0 0 14px;line-height:1.62;color:#eef2fb}
+  .qtext mark{background:var(--hl);color:#fff}
+
+  .verdict{margin:14px 0 0;padding:13px 15px;border-radius:12px;font-weight:700;font-size:14.5px;display:none}
+  .verdict.show{display:block}
+  .verdict.ok{background:var(--okbg);color:var(--ok);border:1px solid rgba(70,201,138,.4)}
+  .verdict.no{background:var(--nobg);color:var(--no);border:1px solid rgba(255,107,107,.4)}
+  .verdict .ans{display:block;color:var(--ink);font-weight:600;margin-top:6px;font-size:13.5px;opacity:.92}
+
+  /* 해설 (펼침) */
+  .explwrap{margin-top:14px;border:1px solid var(--line2);border-radius:13px;overflow:hidden;display:none}
+  .explwrap.show{display:block}
+  .expltoggle{width:100%;text-align:left;background:rgba(91,155,255,.08);border:none;color:var(--blue2);
+    font-family:var(--sans);font-weight:700;font-size:13.5px;padding:12px 15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .expltoggle .chev{transition:.2s}
+  .explwrap.open .expltoggle .chev{transform:rotate(180deg)}
+  .explbody{display:none;padding:16px 18px;background:var(--bg2);font-size:14px;line-height:1.8;color:#dce3f3}
+  .explwrap.open .explbody{display:block}
+  .explbody h2{font-family:var(--serif);font-size:16px;color:var(--gold2);margin:16px 0 6px;border-top:1px solid var(--line);padding-top:14px}
+  .explbody h2:first-child{border-top:none;margin-top:0;padding-top:0}
+  .explbody h3{font-size:14px;color:var(--blue2);margin:12px 0 4px}
+  .explbody mark{background:var(--hl);color:#fff;padding:.5px 2px;border-radius:3px}
+  .explbody b{color:var(--gold2)}
+  .explbody table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+  .explbody th,.explbody td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+  .explbody th{background:rgba(217,184,107,.08);color:var(--gold2)}
+  .explbody ul{margin:6px 0;padding-left:18px} .explbody li{margin:3px 0}
+
+  .qnav{display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap}
+  .qdots{display:flex;gap:6px;margin-right:auto}
+  .qdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.16)}
+  .qdot.done{background:var(--gold)} .qdot.cur{box-shadow:0 0 0 3px rgba(217,184,107,.25)}
+
+  .footbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(10,14,23,.93);backdrop-filter:blur(12px);
+    border-top:1px solid var(--line2);padding:11px 16px;display:flex;gap:10px;align-items:center;max-width:960px;margin:0 auto}
+  .footbar .sp{flex:1}
+
+  @media(max-width:720px){
+    .split{grid-template-columns:1fr}
+    .passage{position:static;max-height:none}
+    .passage.collapsed .ptext{display:none}
+    .pfold{display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:700;font-size:13px;color:var(--gold2);margin-bottom:4px}
+    .passage.collapsed .pfold{margin-bottom:0}
+    .pfold .chev{transition:.2s} .passage.collapsed .pfold .chev{transform:rotate(-90deg)}
+  }
+  @media(min-width:721px){.pfold{display:none}}
+
+  .modal{position:fixed;inset:0;background:rgba(4,7,14,.72);z-index:60;display:none;align-items:flex-start;justify-content:center;padding:32px 14px;overflow:auto}
+  .modal.show{display:flex}
+  .sheet{background:linear-gradient(170deg,var(--panel2),var(--panel));border:1px solid var(--line2);max-width:820px;width:100%;border-radius:18px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .sheet h3{margin:0 0 4px;font-family:var(--serif);font-size:21px;color:var(--gold2)}
+  .sheet .mt{color:var(--sub);font-size:13px;margin:0 0 16px}
+  .wrongitem{border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:12px;background:var(--bg2)}
+  .wrongitem .wp{font-weight:800;font-size:13px;color:var(--gold2);margin-bottom:6px}
+  .wrongitem .wq{font-size:14px;margin-bottom:8px;color:#e6ebf8}
+  .wrongitem .wrow{font-size:13px;margin:3px 0}
+  .wrongitem .mine{color:var(--no);font-weight:700} .wrongitem .corr{color:var(--ok);font-weight:700}
+  .wrongitem .wexpl{margin-top:10px;border-top:1px solid var(--line);padding-top:10px;font-size:13px;line-height:1.75;color:#cfd7ea}
+  .wrongitem .wexpl h2{font-family:var(--serif);font-size:14px;color:var(--gold2);margin:12px 0 5px} .wrongitem .wexpl h2:first-child{margin-top:0}
+  .wrongitem .wexpl h3{font-size:13px;color:var(--blue2);margin:9px 0 3px}
+  .wrongitem .wexpl table{width:100%;border-collapse:collapse;font-size:12px;margin:6px 0}
+  .wrongitem .wexpl th,.wrongitem .wexpl td{border:1px solid var(--line);padding:5px 8px}
+  .wrongitem .wexpl th{background:rgba(217,184,107,.08);color:var(--gold2)}
+  .wrongitem .wexpl mark{background:var(--hl);color:#fff} .wrongitem .wexpl b{color:var(--gold2)}
+  .sheet .mfoot{display:flex;gap:10px;margin-top:10px}
+  .empty{color:var(--sub);text-align:center;padding:32px 0}
+</style>
+</head>
+<body>
+<header class="top" id="topbar" style="display:none">
+  <button class="btn ghost" id="backBtn">⌂ 홈으로</button>
+  <span class="brand">송종옥 Verbal · 2024년 11월 후기</span>
+  <span class="badge" id="topBadge"></span>
+</header>
+<div class="wrap" id="app"></div>
+
+<div class="modal" id="wrongModal"><div class="sheet">
+  <h3>오답노트</h3><p class="mt" id="wrongMeta"></p>
+  <div id="wrongList"></div>
+  <div class="mfoot"><button class="btn primary" id="exportBtn">HTML로 내보내기</button>
+  <button class="btn ghost" id="closeWrong" style="margin-left:auto">닫기</button></div>
+</div></div>
+
+<script>
+let DATA = {TCSE:[], RCCR:[]};   // 처음엔 비어있음 → index.json으로 채움
+let INDEX = {TCSE:[], RCCR:[]};   // 경량 인덱스(검색·메뉴용, 해설 없음)
+let LOADED = {TCSE:false, RCCR:false};
+const DATA_BASE = "data/";
+const LS = "songjongok_verbal_month_2024_11";
+const SEG = 100;
+
+function showLoading(msg){
+  const app=document.getElementById("app");
+  app.innerHTML=`<div style="text-align:center;padding:80px 0;color:var(--sub)">
+    <div style="font-family:var(--serif);font-size:20px;color:var(--gold2);margin-bottom:8px">${msg||"불러오는 중…"}</div>
+    <div style="font-size:13px">잠시만 기다려 주세요</div></div>`;
+}
+async function fetchJSON(url){ const r=await fetch(url); if(!r.ok) throw new Error(url+" "+r.status); return r.json(); }
+async function ensureIndex(){
+  if(INDEX.TCSE.length) return;
+  const ix = await fetchJSON(DATA_BASE+"index.json");
+  INDEX.TCSE = ix.TCSE; INDEX.RCCR = ix.RCCR; window.__counts = ix.counts;
+}
+async function ensureCat(cat){
+  if(LOADED[cat]) return;
+  const file = cat==="TCSE" ? "tcse.json" : "rccr.json";
+  const d = await fetchJSON(DATA_BASE+file);
+  DATA[cat] = d[cat]; LOADED[cat]=true;
+}
+
+function loadState(){ try{return JSON.parse(localStorage.getItem(LS))||{};}catch(e){return {};} }
+function saveState(s){ try{localStorage.setItem(LS,JSON.stringify(s));}catch(e){} }
+let STATE = loadState(); STATE.results=STATE.results||{}; STATE.pos=STATE.pos||{};
+
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function inline(s){ s=s.replace(/==([^=]+)==/g,"<mark>$1</mark>").replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>"); return s; }
+function md(s){ return inline(esc(s)); }
+// 지문·stem 전용: boldface(**…**)를 highlight로 표시(다크배경 가독성). ==…==도 highlight.
+function mdBF(s){ s=esc(s); s=s.replace(/==([^=]+)==/g,'<mark>$1</mark>').replace(/\*\*([^*]+)\*\*/g,'<mark class="bf">$1</mark>'); return s; }
+// 해설 마크다운(블록) → HTML: 헤더·표·리스트·문단
+function mdBlock(src){
+  if(!src) return "";
+  const lines = src.split("\n"); let out=[], i=0;
+  while(i<lines.length){
+    let ln=lines[i];
+    if(/^\s*$/.test(ln)){ i++; continue; }
+    let h=ln.match(/^(#{2,3})\s+(.+)$/);
+    if(h){ const lvl=h[1].length; out.push(`<h${lvl}>${inline(esc(h[2]))}</h${lvl}>`); i++; continue; }
+    if(/^\s*\|/.test(ln)){ // 표
+      let tb=[]; while(i<lines.length && /^\s*\|/.test(lines[i])){ tb.push(lines[i]); i++; }
+      out.push(renderTable(tb)); continue;
+    }
+    if(/^\s*[-*]\s+/.test(ln)){ // 리스트
+      let li=[]; while(i<lines.length && /^\s*[-*]\s+/.test(lines[i])){ li.push(lines[i].replace(/^\s*[-*]\s+/,"")); i++; }
+      out.push("<ul>"+li.map(x=>`<li>${inline(esc(x))}</li>`).join("")+"</ul>"); continue;
+    }
+    let para=[ln]; i++;
+    while(i<lines.length && !/^\s*$/.test(lines[i]) && !/^\s*[-*#|]/.test(lines[i])){ para.push(lines[i]); i++; }
+    out.push(`<p>${inline(esc(para.join(" ")))}</p>`);
+  }
+  return out.join("");
+}
+function renderTable(rows){
+  rows=rows.filter(r=>!/^\s*\|[\s\-:|]+\|?\s*$/.test(r));
+  if(!rows.length) return "";
+  const cells=r=>r.trim().replace(/^\||\|$/g,"").split("|").map(c=>c.trim());
+  const head=cells(rows[0]);
+  let h="<tr>"+head.map(c=>`<th>${inline(esc(c))}</th>`).join("")+"</tr>";
+  let b=rows.slice(1).map(r=>"<tr>"+cells(r).map(c=>`<td>${inline(esc(c))}</td>`).join("")+"</tr>").join("");
+  return `<table>${h}${b}</table>`;
+}
+function splitSentences(t){ const p=t.match(/[^.!?]+[.!?]+["”’)]?\s*|[^.!?]+$/g)||[t]; return p.map(s=>s.trim()).filter(Boolean); }
+
+// view: {screen:'home'|'menu'|'q', cat, list:[...ids], idx, q}
+let view={screen:"home"};
+let curList=null;     // 현재 풀이중 문제 배열(필터/세그먼트/검색 결과)
+let curLabel="";      // 메뉴 라벨
+document.getElementById("backBtn").onclick=()=>{ view={screen:"home"}; render(); };
+
+function render(){
+  const app=document.getElementById("app"), top=document.getElementById("topbar");
+  if(view.screen==="home"){ top.style.display="none"; renderHome(app); window.scrollTo(0,0); return; }
+  top.style.display="flex";
+  if(view.screen==="menu"){ renderMenu(app); window.scrollTo(0,0); return; }
+  renderQ(app);
+}
+
+/* ===== 홈 ===== */
+function renderHome(app){
+  const t=window.__counts.TCSE, r=window.__counts.RCCR, rq=window.__counts.RCCR_q;
+  const tpos=STATE.pos.TCSE, rpos=STATE.pos.RCCR;
+  app.innerHTML=`
+  <div class="home">
+    <div class="hero">
+      <span class="crest"><span class="dot"></span>GRE Verbal · 2024 Monthly Review</span>
+      <h1>Verbal의 최강자 <span class="gold">송종옥 선생님</span>이<br>정리한 <span class="gold">2024년 11월 후기</span></h1>
+      <p class="sig">The Mastery Series for GRE Verbal</p>
+      <div class="rule"></div>
+      <p class="desc">이 페이지는 <b>2024년 11월 후기</b>에 출제된 문제들을 모은 복습 자료입니다. 유형별·범위별로 골라 풀고, 틀린 문제는 해설과 함께 오답노트에 모입니다.</p>
+      <div class="note"><span class="k">TIP</span><span>고빈도 문제들은 수업 교재 <b style="color:var(--gold2)">'모든문제모음집'</b>을 활용하세요.</span></div>
+    </div>
+    <div class="searchbar">
+      <span class="ico">⌕</span>
+      <input id="searchInput" placeholder="문제 번호(예: 57) · 본문 단어 · 핵심 어휘로 검색" autocomplete="off">
+      <div class="hintx">번호를 입력하면 바로 이동, 단어를 입력하면 해당 문제를 찾습니다.</div>
+      <div class="results" id="results"></div>
+    </div>
+    <div class="cats">
+      <button class="cat tcse" onclick="openMenu('TCSE')">
+        <div class="ic">TC<br>SE</div>
+        <div class="t"><span class="en">Text Completion · Sentence Equivalence</span><span>빈칸 채우기 · ${t}문제</span></div>
+        <span class="resume">${tpos?`이어서 ${tpos+1}번부터 →`:`유형·범위 고르기 →`}</span>
+      </button>
+      <button class="cat rccr" onclick="openMenu('RCCR')">
+        <div class="ic">RC<br>CR</div>
+        <div class="t"><span class="en">Reading Comprehension · Critical Reasoning</span><span>독해 · 논리 · ${r}지문 / ${rq}문항</span></div>
+        <span class="resume">${rpos?`이어서 ${rpos+1}번부터 →`:`유형·범위 고르기 →`}</span>
+      </button>
+    </div>
+    <div class="reset"><a onclick="resetAll()">진도·오답 기록 초기화</a></div>
+    <div class="foot">© 송종옥 GRE Verbal · 2024년 11월 후기 — 월별 복습 자료</div>
+  </div>`;
+  const si=document.getElementById("searchInput");
+  si.oninput=()=>doSearch(si.value);
+}
+
+/* ===== 검색 ===== */
+function doSearch(qstr){
+  const box=document.getElementById("results"); if(!box) return;
+  qstr=(qstr||"").trim().toLowerCase();
+  if(!qstr){ box.innerHTML=""; return; }
+  const all=[...INDEX.TCSE,...INDEX.RCCR];
+  let hits=[];
+  const isNum=/^\d+$/.test(qstr);
+  // 순수 숫자 입력 = 번호 검색 (번호 일치만, 본문 보완 안 함)
+  if(isNum){
+    all.forEach(p=>{ if(String(p.num)===qstr) hits.push(p); });
+  } else {
+    // 단어 입력 = 본문/어휘 검색
+    all.forEach(p=>{
+      const inText=p.search && p.search.includes(qstr);
+      const inVocab=(p.vocab||[]).some(v=>v.toLowerCase().includes(qstr));
+      if(inText||inVocab) hits.push(p);
+    });
+  }
+  hits=hits.slice(0,20);
+  if(!hits.length){ box.innerHTML=`<div class="empty" style="padding:14px">검색 결과 없음</div>`; return; }
+  box.innerHTML=hits.map(p=>{
+    const tx = p.preview || (p.cat==="TCSE" ? p.stem : p.passage) || "";
+    const ty = (p.types||[]).map(t=>t.name).slice(0,2).join(" · ");
+    return `<div class="rrow" onclick="jumpTo('${p.cat}','${p.id}')">
+      <span class="rid">${p.id}</span><span class="rtx">${esc(tx.slice(0,80))}</span><span class="rty">${esc(ty)}</span></div>`;
+  }).join("");
+}
+async function jumpTo(cat,id){
+  showLoading("문제를 불러오는 중…"); await ensureCat(cat);
+  curList=INDEX[cat].map(p=>p.id); curLabel=cat+" 전체";
+  view={screen:"q",cat,idx:INDEX[cat].findIndex(p=>p.id===id),q:0};
+  render(); window.scrollTo(0,0);
+}
+
+/* ===== 카테고리 메뉴 (유형·세그먼트) ===== */
+function typeStats(cat){
+  const m={};
+  INDEX[cat].forEach(p=>(p.types||[]).forEach(t=>{ m[t.code]=m[t.code]||{name:t.name,n:0}; m[t.code].n++; }));
+  return Object.entries(m).sort((a,b)=>b[1].n-a[1].n);
+}
+function openMenu(cat){ view={screen:"menu",cat}; render(); }
+function renderMenu(app){
+  const cat=view.cat, list=INDEX[cat], N=list.length;
+  document.getElementById("topBadge").textContent=cat;
+  // 세그먼트
+  const segs=[]; for(let s=0;s<N;s+=SEG){ segs.push([s,Math.min(s+SEG,N)]); }
+  const segHtml=segs.map(([a,b])=>{
+    const done=list.slice(a,b).filter(p=>isItemDone(p)).length;
+    return `<button class="chip wide" onclick="startRange(${a},${b})">
+      <span>${list[a].num} – ${list[b-1].num}번 <span class="pg">(${b-a}문제)</span></span>
+      <span class="c">${done}/${b-a}</span></button>`;
+  }).join("");
+  // 유형
+  const tyHtml=typeStats(cat).map(([code,o])=>
+    `<button class="chip" onclick="startType('${code}','${esc(o.name)}')">${esc(o.name)}<span class="c">${o.n}</span></button>`
+  ).join("");
+  const wrongN=collectWrong().filter(w=>w.cat===cat).length;
+  app.innerHTML=`
+  <div class="menu">
+    <div class="menuhd"><h2>${cat}</h2><span>${N}${cat==="TCSE"?"문제":"지문"} · 유형이나 범위를 골라 푸세요</span></div>
+    <div class="chips">
+      <button class="chip" onclick="startAll()">전체 번호순 <span class="c">${N}</span></button>
+      <button class="chip" onclick="startWrong()" ${wrongN?"":"disabled"}>틀린 것만 다시 <span class="c">${wrongN}</span></button>
+    </div>
+    <div class="seg-title">유형별</div>
+    <div class="chips">${tyHtml}</div>
+    <div class="seg-title">범위(100문제 단위)</div>
+    <div class="chips">${segHtml}</div>
+  </div>`;
+}
+function isItemDone(p){
+  if(p.cat==="TCSE") return !!STATE.results[p.id];
+  // RCCR: 인덱스엔 질문수 없음 → 결과 키 중 p.id#* 가 하나라도 있고 전부 done인지 근사. 진행률 표시는 첫 질문 기준.
+  return !!STATE.results[p.id+"#0"];
+}
+async function startAll(){ const cat=view.cat; showLoading("문제를 불러오는 중…"); await ensureCat(cat); curList=INDEX[cat].map(p=>p.id); curLabel=cat+" 전체"; view={screen:"q",cat,idx:STATE.pos[cat]||0,q:0}; render(); window.scrollTo(0,0); }
+async function startRange(a,b){ const cat=view.cat; showLoading("문제를 불러오는 중…"); await ensureCat(cat); curList=INDEX[cat].slice(a,b).map(p=>p.id); curLabel=`${INDEX[cat][a].num}–${INDEX[cat][b-1].num}번`; view={screen:"q",cat,idx:0,q:0}; render(); window.scrollTo(0,0); }
+async function startType(code,name){ const cat=view.cat; showLoading("문제를 불러오는 중…"); await ensureCat(cat); curList=INDEX[cat].filter(p=>(p.types||[]).some(t=>t.code===code)).map(p=>p.id); curLabel=name; view={screen:"q",cat,idx:0,q:0}; render(); window.scrollTo(0,0); }
+async function startWrong(){ const cat=view.cat; showLoading("문제를 불러오는 중…"); await ensureCat(cat); const ids=[...new Set(collectWrong().filter(w=>w.cat===cat).map(w=>w.key.split("#")[0]))]; curList=ids; curLabel="틀린 것만"; view={screen:"q",cat,idx:0,q:0}; render(); window.scrollTo(0,0); }
+
+/* ===== 문제 화면 ===== */
+function itemById(cat,id){ return DATA[cat].find(p=>p.id===id); }
+function renderQ(app){
+  const cat=view.cat;
+  if(!curList||!curList.length){ view.screen="menu"; render(); return; }
+  view.idx=Math.max(0,Math.min(view.idx,curList.length-1));
+  const item=itemById(cat,curList[view.idx]);
+  if(cat==="TCSE") STATE.pos.TCSE=DATA.TCSE.findIndex(p=>p.id===item.id);
+  else STATE.pos.RCCR=DATA.RCCR.findIndex(p=>p.id===item.id);
+  saveState(STATE);
+  document.getElementById("topBadge").textContent=`${curLabel} · ${view.idx+1}/${curList.length}`;
+  if(cat==="TCSE") renderTCSE(app,item); else renderRCCR(app,item);
+}
+function typeChips(item){ return (item.types||[]).map(t=>`<span class="ty">${esc(t.name)}</span>`).join(""); }
+function explBlock(item){
+  if(!item.explanation) return "";
+  return `<div class="explwrap" id="explwrap"><button class="expltoggle" id="expltoggle"><span>해설 보기</span><span class="chev">▾</span></button>
+    <div class="explbody">${mdBlock(item.explanation)}</div></div>`;
+}
+function wireExpl(){
+  const w=document.getElementById("explwrap"); if(!w) return;
+  document.getElementById("expltoggle").onclick=()=>w.classList.toggle("open");
+}
+
+function renderTCSE(app,item){
+  const multi=item.kind==="multi", se=item.kind==="se", single=item.kind==="single";
+  let bi=0;
+  let stemHtml=mdBF(item.stem).replace(/\((i{1,3})\)\s*빈칸/g,(m,r)=>{bi++;return `<span class="bnum">(${r})</span><span class="blank">________</span>`;}).replace(/빈칸/g,()=>`<span class="blank">________</span>`);
+  let optsHtml="";
+  if(se){
+    optsHtml=`<div class="hint">정답을 2개 고르세요 · 둘 다 맞아야 정답</div><div class="opts">`;
+    item.blanks[0].options.forEach((o,i)=>{ const lab=String.fromCharCode(65+i);
+      optsHtml+=`<div class="opt sa" data-val="${esc(o)}" data-g="0"><span class="mk">✓</span><span><span class="lab">${lab}.</span>${md(o)}</span></div>`; });
+    optsHtml+=`</div>`;
+  } else {
+    const cols=single?[{label:"Blank",options:item.blanks[0].options}]:item.blanks.map(b=>({label:b.label,options:b.options}));
+    const maxRows=Math.max(...cols.map(c=>c.options.length));
+    let head=cols.map(c=>`<th>${esc(c.label)}</th>`).join(""), rows="";
+    for(let rI=0;rI<maxRows;rI++){ rows+="<tr>"; cols.forEach((c,cI)=>{ const o=c.options[rI];
+      if(o===undefined){rows+="<td></td>";return;} rows+=`<td><div class="cell" data-val="${esc(o)}" data-g="${cI}"><span class="mk">●</span><span>${md(o)}</span></div></td>`; }); rows+="</tr>"; }
+    optsHtml=`<table class="opttable"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`;
+  }
+  app.innerHTML=`<div class="stage"><div class="qcard">
+    <div class="meta"><span class="pid">${item.id}</span><span class="tt">${typeChips(item)}</span><span class="prog">${view.idx+1} / ${curList.length}</span></div>
+    <div class="progbar"><i style="width:${(view.idx+1)/curList.length*100}%"></i></div>
+    <p class="stem">${stemHtml}</p>${optsHtml}
+    <div class="verdict" id="verdict"></div>${explBlock(item)}
+  </div></div>${footbar()}`;
+  wireFoot(); wireExpl();
+  const picked={};
+  function cells(){return app.querySelectorAll(".cell, .opt");}
+  cells().forEach(el=>{ el.onclick=()=>{ if(el.dataset.locked) return;
+    const g=el.dataset.g, txt=el.dataset.val; picked[g]=picked[g]||[];
+    if(se){ const i=picked[g].indexOf(txt); if(i>=0){picked[g].splice(i,1);el.classList.remove("sel");} else {if(picked[g].length>=2)return;picked[g].push(txt);el.classList.add("sel");} }
+    else { app.querySelectorAll(`[data-g="${g}"]`).forEach(x=>x.classList.remove("sel")); picked[g]=[txt]; el.classList.add("sel"); }
+  }; });
+  document.getElementById("checkBtn").onclick=()=>{
+    let chosen; if(multi) chosen=item.blanks.map((b,i)=>(picked[i]||[])[0]||""); else if(single) chosen=(picked[0]||[]).slice(0,1); else chosen=(picked[0]||[]).slice();
+    const ans=item.answers; let correct;
+    if(se) correct=chosen.length===ans.length&&ans.every(a=>chosen.map(norm).includes(norm(a)));
+    else if(multi) correct=ans.length===chosen.length&&ans.every((a,i)=>norm(a)===norm(chosen[i]));
+    else correct=chosen.length===1&&norm(chosen[0])===norm(ans[0]);
+    STATE.results[item.id]={picked:chosen,correct,cat:"TCSE"}; saveState(STATE);
+    cells().forEach(el=>{ el.dataset.locked="1"; const v=el.dataset.val;
+      if(ans.some(a=>norm(a)===norm(v))) el.classList.add("correct"); else if(chosen.some(c=>norm(c)===norm(v))) el.classList.add("wrong"); });
+    showVerdict(correct,"정답: "+ans.join(multi?" / ":", "));
+    revealExpl(); document.getElementById("checkBtn").style.display="none";
+  };
+}
+
+function renderRCCR(app,item){
+  const q=item.questions[view.q]||item.questions[0], qkey=item.id+"#"+view.q;
+  const isSent=q.sentence_select, sents=splitSentences(item.passage);
+  let passHtml=isSent?sents.map((s,i)=>`<span class="sent" data-i="${i}">${mdBF(s)} </span>`).join(""):mdBF(item.passage);
+  let optsHtml="";
+  if(!isSent){ optsHtml=`<div class="opts">`; q.options.forEach(o=>{ optsHtml+=`<div class="opt ${q.selectall?'sa':''}" data-lab="${o.label}"><span class="mk">${q.selectall?'✓':'●'}</span><span><span class="lab">${o.label}.</span>${md(o.text)}</span></div>`; }); optsHtml+=`</div>`; }
+  const dots=item.questions.map((_,i)=>{const done=STATE.results[item.id+"#"+i];return `<span class="qdot ${done?'done':''} ${i===view.q?'cur':''}"></span>`;}).join("");
+  app.innerHTML=`<div class="stage"><div class="qcard">
+    <div class="meta"><span class="pid">${item.id}</span><span class="tt">${typeChips(item)}</span><span class="prog">지문 ${view.idx+1}/${curList.length} · 질문 ${view.q+1}/${item.questions.length}</span></div>
+    <div class="progbar"><i style="width:${(view.idx+1)/curList.length*100}%"></i></div>
+    <div class="split">
+      <div class="passage ${isSent?'selsent':''}" id="passage">
+        <div class="pfold" onclick="document.getElementById('passage').classList.toggle('collapsed')"><span>지문 보기 / 접기</span><span class="chev">▾</span></div>
+        <div class="ptext">${passHtml}</div>
+      </div>
+      <div class="qpanel">
+        ${q.direction?`<div class="direction">${esc(q.direction)}</div>`:``}
+        ${isSent?`<div class="hint">본문에서 해당하는 문장을 클릭하세요</div>`:``}
+        ${q.selectall?`<div class="hint">전부 맞아야 정답 · 부분점수 없음</div>`:``}
+        <p class="qtext">${md(q.qtext)}</p>${optsHtml}
+        <div class="verdict" id="verdict"></div>
+        <div class="qnav"><div class="qdots">${dots}</div>
+          <button class="btn ghost" id="prevQ" ${view.q===0?'disabled':''}>← 질문</button>
+          <button class="btn ghost" id="nextQ" ${view.q===item.questions.length-1?'disabled':''}>질문 →</button></div>
+      </div>
+    </div>${explBlock(item)}
+  </div></div>${footbar()}`;
+  wireFoot(); wireExpl();
+  if(window.innerWidth<=720&&view.q>0) document.getElementById("passage").classList.add("collapsed");
+  document.getElementById("prevQ").onclick=()=>{view.q--;render();};
+  document.getElementById("nextQ").onclick=()=>{view.q++;render();};
+  let picked=[], chosenSent=null;
+  if(isSent){ const pass=document.getElementById("passage");
+    pass.querySelectorAll(".sent").forEach(el=>{ el.onclick=()=>{ if(pass.classList.contains("locked"))return;
+      pass.querySelectorAll(".sent").forEach(x=>x.classList.remove("chosen")); el.classList.add("chosen"); chosenSent=parseInt(el.dataset.i); }; });
+  } else { app.querySelectorAll(".opt").forEach(el=>{ el.onclick=()=>{ if(el.hasAttribute("disabled"))return; const lab=el.dataset.lab;
+      if(q.selectall){const i=picked.indexOf(lab);if(i>=0){picked.splice(i,1);el.classList.remove("sel");}else{picked.push(lab);el.classList.add("sel");}}
+      else{app.querySelectorAll(".opt").forEach(x=>x.classList.remove("sel"));picked=[lab];el.classList.add("sel");} }; }); }
+  document.getElementById("checkBtn").onclick=()=>{
+    let correct,ansDisplay;
+    if(isSent){ const ai=matchSentence(sents,q.answer); correct=chosenSent!==null&&chosenSent===ai;
+      const pass=document.getElementById("passage"); pass.classList.add("locked");
+      pass.querySelectorAll(".sent").forEach(el=>{const i=parseInt(el.dataset.i); if(i===ai)el.classList.add("ans-right");else if(i===chosenSent)el.classList.add("ans-wrong");});
+      ansDisplay="정답: 본문에 강조된 문장"; STATE.results[qkey]={picked:[chosenSent],correct,cat:"RCCR",sent:true};
+    } else { const ans=answerLetters(q.answer); correct=picked.length===ans.length&&ans.every(a=>picked.includes(a));
+      app.querySelectorAll(".opt").forEach(el=>{el.setAttribute("disabled","");const lab=el.dataset.lab; if(ans.includes(lab))el.classList.add("correct");else if(picked.includes(lab))el.classList.add("wrong");});
+      ansDisplay="정답: "+ans.join(", "); STATE.results[qkey]={picked:picked.slice(),correct,cat:"RCCR"}; }
+    saveState(STATE); showVerdict(correct,ansDisplay); revealExpl();
+    document.getElementById("checkBtn").style.display="none";
+  };
+}
+function revealExpl(){ const w=document.getElementById("explwrap"); if(w) w.classList.add("show"); }
+
+function answerLetters(a){return (a||"").match(/[A-E]/g)||[];}
+function matchSentence(sents,ans){ ans=(ans||"").toLowerCase();
+  if(/first sentence|첫 ?문장/.test(ans))return 0; if(/last sentence|마지막/.test(ans))return sents.length-1;
+  const mm=ans.match(/(\d+)(st|nd|rd|th)? sentence|(\d+) ?번째/); if(mm){const n=parseInt(mm[1]||mm[3]);if(n>=1)return n-1;}
+  let best=-1,bl=0; sents.forEach((s,i)=>{const sl=s.toLowerCase(); if(ans.length>10&&sl.includes(ans.slice(0,20))){if(ans.length>bl){best=i;bl=ans.length;}}}); return best>=0?best:0; }
+function showVerdict(ok,t){const v=document.getElementById("verdict");v.className="verdict show "+(ok?"ok":"no");v.innerHTML=(ok?"✦ 정답입니다":"✗ 오답입니다")+`<span class="ans">${t}</span>`;}
+function norm(s){return (s||"").trim().toLowerCase().replace(/[’‘‛]/g,"'").replace(/[“”]/g,'"').replace(/\s+/g," ");}
+
+function footbar(){return `<div class="footbar">
+  <button class="btn ghost" id="prevBtn">← 이전</button><div class="sp"></div>
+  <button class="btn ghost" id="wrongBtn">오답노트</button>
+  <button class="btn primary" id="checkBtn">정답 확인</button>
+  <button class="btn" id="nextBtn">다음 →</button></div>`;}
+function wireFoot(){
+  document.getElementById("prevBtn").onclick=()=>{ if(view.cat==="RCCR"&&view.q>0)view.q--; else {view.idx--;view.q=0;} render();window.scrollTo(0,0); };
+  document.getElementById("nextBtn").onclick=()=>{ const it=itemById(view.cat,curList[view.idx]);
+    if(view.cat==="RCCR"&&view.q<it.questions.length-1)view.q++; else {view.idx++;view.q=0;} render();window.scrollTo(0,0); };
+  document.getElementById("wrongBtn").onclick=openWrong;
+}
+document.addEventListener("keydown",e=>{
+  if(view.screen!=="q") return;
+  if(e.target.tagName==="INPUT") return;
+  if(e.key==="ArrowRight") document.getElementById("nextBtn")?.click();
+  else if(e.key==="ArrowLeft") document.getElementById("prevBtn")?.click();
+  else if(e.key==="Enter"){ const c=document.getElementById("checkBtn"); if(c&&c.style.display!=="none")c.click(); }
+});
+
+/* ===== 오답노트 ===== */
+function collectWrong(){const o=[];for(const k in STATE.results){const r=STATE.results[k];if(r.correct)continue;o.push({key:k,...r});}return o;}
+function findItemByKey(key){const [id,qi]=key.split("#");const cat=id.startsWith("TCSE")?"TCSE":"RCCR";return {item:DATA[cat].find(p=>p.id===id),qi:qi!==undefined?parseInt(qi):null};}
+function openWrong(){const w=collectWrong();const list=document.getElementById("wrongList");
+  document.getElementById("wrongMeta").textContent=`틀린 문항 ${w.length}개 · 해설 포함 · 브라우저에 자동 저장됨`;
+  list.innerHTML=w.length?w.map(x=>wrongCard(x,true)).join(""):`<div class="empty">아직 틀린 문제가 없습니다.</div>`;
+  document.getElementById("wrongModal").classList.add("show");}
+function wrongCard(w,withExpl){const {item,qi}=findItemByKey(w.key);if(!item)return "";
+  const expl = withExpl&&item.explanation?`<div class="wexpl">${mdBlock(item.explanation)}</div>`:"";
+  if(item.cat==="TCSE")return `<div class="wrongitem"><div class="wp">${item.id}</div><div class="wq">${md(item.stem)}</div>
+    <div class="wrow mine">내 답: ${(w.picked||[]).filter(Boolean).join(" / ")||"(무응답)"}</div>
+    <div class="wrow corr">정답: ${item.answers.join(item.kind==="multi"?" / ":", ")}</div>${expl}</div>`;
+  const q=item.questions[qi]; let mine,corr;
+  if(q.sentence_select){mine="(문장 선택)";corr="본문 정답 문장";} else {mine=(w.picked||[]).join(", ")||"(무응답)";corr=answerLetters(q.answer).join(", ");}
+  return `<div class="wrongitem"><div class="wp">${item.id} · 질문 ${qi+1}</div><div class="wq">${md(q.qtext)}</div>
+    <div class="wrow mine">내 답: ${mine}</div><div class="wrow corr">정답: ${corr}</div>${expl}</div>`;}
+document.getElementById("closeWrong").onclick=()=>document.getElementById("wrongModal").classList.remove("show");
+document.getElementById("exportBtn").onclick=exportWrong;
+function exportWrong(){const w=collectWrong();
+  const body=w.length?w.map(x=>wrongCard(x,true)).join(""):`<div class="empty">틀린 문제가 없습니다.</div>`;
+  const html=`<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>오답노트 — 송종옥 Verbal Part I</title>
+  <style>body{font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;max-width:780px;margin:30px auto;padding:0 16px;color:#1d2330;line-height:1.65}
+  h1{font-size:20px}mark{background:#fff3a8}.wrongitem{border:1px solid #e3e6ec;border-radius:12px;padding:15px;margin-bottom:14px}
+  .wp{font-weight:800;font-size:13px;color:#b8924a;margin-bottom:6px}.wq{margin-bottom:8px}.mine{color:#dc2626;font-weight:700}.corr{color:#16a34a;font-weight:700}
+  .wexpl{margin-top:10px;border-top:1px solid #eee;padding-top:10px;font-size:13.5px}.wexpl h2{font-size:15px;color:#b8924a;margin:12px 0 5px}.wexpl h3{font-size:13.5px;color:#2563eb;margin:9px 0 3px}
+  .wexpl table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0}.wexpl th,.wexpl td{border:1px solid #ddd;padding:5px 8px}.wexpl th{background:#faf4e6}
+  b{font-weight:700}.empty{color:#888;text-align:center;padding:30px}</style></head>
+  <body><h1>오답노트 — 송종옥 Verbal · Part I</h1><p style="color:#777">생성: ${new Date().toLocaleString("ko-KR")} · 틀린 문항 ${w.length}개 · 해설 포함</p>${body}</body></html>`;
+  const blob=new Blob([html],{type:"text/html"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="오답노트.html";a.click();URL.revokeObjectURL(url);}
+function resetAll(){if(confirm("진도와 오답 기록을 모두 지웁니다. 계속할까요?")){STATE={results:{},pos:{}};saveState(STATE);render();}}
+
+(async function boot(){
+  showLoading("준비 중…");
+  try{ await ensureIndex(); }catch(e){
+    document.getElementById("app").innerHTML='<div style="padding:60px 0;text-align:center;color:var(--no)">데이터를 불러오지 못했습니다.<br><span style="color:var(--sub);font-size:13px">웹 서버(또는 Cloudflare)에서 열어야 합니다. 로컬 파일은 안내의 간이 서버로 실행하세요.</span></div>';
+    return;
+  }
+  render();
+})();
+</script>
+</body>
+</html>
